@@ -48,7 +48,7 @@ def PeerCBOREncode(obj):
         s[3] = obj.info
         return s
     return obj
-    
+
 def PeerCBORDecode(tag):
     return Peer(tag[1], tag[2],'',tag[3])
         
