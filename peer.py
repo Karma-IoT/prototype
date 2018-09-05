@@ -1,9 +1,7 @@
-import json
 import hashlib
 import nacl
 import nacl.signing
 import nacl.encoding
-import cbor2
 
 def _alt_prefix(bin_value):
     length = 160
@@ -55,6 +53,9 @@ def PeerCBORDecode(tag):
     return Peer(tag[1], tag[2],'',tag[3])
         
 if __name__ == '__main__':
+    import json
+    import cbor2
+    
     data = json.load(open('./keystore.json','r'))
     peer = Peer(data['addr'],spk = data['pk'],info = [1,'12345',2,'12435345'])
     s = json.dumps(peer, default = PeerJSONEncode)
