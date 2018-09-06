@@ -36,13 +36,14 @@ def PeerJSONEncode(obj):
         s['diffcult'] = obj.diffcult
         s['_class'] = 'Peer'
         return s
-    return obj
+    else:
+        return obj
     
 def PeerJSONDecode(o):
     if o['_class'] == 'Peer':
         return Peer(o['addr'], o['spk'], o['epk'],o['info'])
     else:
-        pass
+        return o
     
 def PeerCBOREncode(obj):
     if isinstance(obj,Peer):
