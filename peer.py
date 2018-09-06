@@ -6,7 +6,7 @@ import nacl.encoding
 def _alt_prefix(bin_value):
     length = 160
     while 1:
-        if bin_value[:length + 2] == bin(0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF)[:length + 2]:
+        if bin_value[:length] == '{:0160b}'.format(0)[:length]:
             return length
         length = length - 1
 
@@ -16,7 +16,7 @@ class Peer:
         self.spk = spk
         self.epk = epk
         self.info = info
-        self.diffcult = _alt_prefix(bin(int(hashlib.blake2s(int(addr,16).to_bytes(20,'big'),digest_size = 20).hexdigest(),16)))
+        self.diffcult = _alt_prefix('{:0160b}'.format(int.from_bytes(hashlib.blake2s(int(addr,16).to_bytes(20,'big'),digest_size = 20).digest(),byteorder = 'big')))
 
     def verify(self,data,signature):
         pk = nacl.signing.VerifyKey(self.data['pubkey'],encoder = nacl.encoding.HexEncoder)
@@ -63,7 +63,7 @@ if __name__ == '__main__':
     
     data = json.load(open('./keystore.json','r'))
     peer = Peer(data['addr'],spk = data['pk'],info = [1,'12345',2,'12435345'])
-    s = json.dumps(peer, default = PeerJSONEncode)
+    s = json.dumps(peer, indent = 4, default = PeerJSONEncode)
     print(s)
     b = json.loads(s,object_hook = PeerJSONDecode)
     print(vars(b))

@@ -48,3 +48,4 @@ class Keystore:
 if __name__ == '__main__':
     k1 = Keystore()
     print(k1.data)
+    k1.store()
