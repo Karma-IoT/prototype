@@ -34,23 +34,27 @@ def PeerJSONEncode(obj):
         s['epk'] = obj.epk
         s['info'] = obj.info
         s['diffcult'] = obj.diffcult
+        s['_class'] = 'Peer'
         return s
     return obj
     
 def PeerJSONDecode(o):
-    return Peer(o['addr'], o['spk'], o['epk'],o['info'])
+    if o['_class'] == 'Peer':
+        return Peer(o['addr'], o['spk'], o['epk'],o['info'])
+    else:
+        pass
     
 def PeerCBOREncode(obj):
     if isinstance(obj,Peer):
         s = {}
-        s[1] = obj.addr
-        s[2] = obj.spk
+        s[1] = int(obj.addr,16).to_bytes(20,'big')
+        s[2] = int(obj.spk,16).to_bytes(32,'big')
         s[3] = obj.info
         return s
     return obj
 
 def PeerCBORDecode(tag):
-    return Peer(tag[1], tag[2],'',tag[3])
+    return Peer(hex(int.from_bytes(tag[1],byteorder='big')), hex(int.from_bytes(tag[2],'big')),'',tag[3])
         
 if __name__ == '__main__':
     import json
@@ -64,6 +68,6 @@ if __name__ == '__main__':
     print(vars(b))
 
     s = cbor2.dumps(PeerCBOREncode(peer))
-    print(s)
+    print(hex(int.from_bytes(s,byteorder='big')))
     b = PeerCBORDecode(cbor2.loads(s))
     print(vars(b))

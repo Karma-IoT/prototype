@@ -21,14 +21,21 @@ class KBucket:
         self.peers.append(p)
     
     def split(self):
-        bucketL = self
-        prefix = bucketL.prefix
-        bucketL.prefix = prefix + '0'
-        bucketR = KBucket(prefix + '1')
-        for x in bucketL.peers:
-            if bin(int(x.addr,16))[:len(bucketL.prefix)] == bucketR.prefix:
-                bucketL.remove(x)
+        bucketR = KBucket(self.prefix + '1')
+        self.prefix = self.prefix + '0'
+        peers = self.peers
+        self.peers = []
+        print('---------------------')
+        print('left:',self.prefix,'right',bucketR.prefix)
+        for x in peers:
+            print('{:0160b}'.format(int(x.addr,16))[:20],'     ',bucketR.prefix)
+            if '{:0160b}'.format(int(x.addr,16))[:len(self.prefix)] == bucketR.prefix:
                 bucketR.append(x)
+                print('right:',x.addr)
+            else:
+                print('left:',x.addr)
+                self.peers.append(x)
+        return bucketR
                 
 def KBucketJSONEncode(obj):
     if isinstance(obj,KBucket):
@@ -38,27 +45,47 @@ def KBucketJSONEncode(obj):
         for x in obj.peers:
             peers.append(peer.PeerJSONEncode(x))
         s['peers'] = peers
+        s['_class'] = 'KBucket'
         return s
+    elif isinstance(obj,peer.Peer):
+        return peer.PeerJSONEncode(obj)
     return obj
     
 def KBucketJSONDecode(o):
-    print(o)
-    #return KBucket(o['prefix'], o['spk'], o['epk'],o['info'])
+    if o['_class'] == 'Peer':
+        return peer.PeerJSONDecode(o)
+    elif o['_class'] == 'KBucket':
+        bucket =  KBucket(o['prefix'])
+        bucket.peers = o['peers']
+        return bucket
 
 if __name__ == '__main__':
     import keystore
     import peer
     import json
-    bucket = KBucket('0b')
-    for x in range(30):
+    bucket = KBucket('')
+    for x in range(20):
         d = keystore.Keystore()
         p = peer.Peer(d.data['addr'],d.data['pk'])
         bucket.append(p)
+    print(len(bucket))
+    #  s = json.dumps(bucket, indent = 4, default = KBucketJSONEncode)
+    #  print(s)
+    #
+    #  b = json.loads(s,object_hook = KBucketJSONDecode)
+    #  print(vars(b))
+    #  p = json.dumps(bucket.getK(10),indent = 4,default = KBucketJSONEncode)
+    #  print(p)
+    
+    R = bucket.split()
+    print(json.dumps(bucket,indent = 4, default = KBucketJSONEncode))
+    print('---------------------------------------------------------')
+    print(json.dumps(R,indent = 4, default = KBucketJSONEncode))
+    print('---------------------------------------------------------')
+    
+    R1 = R.split()
+    print(json.dumps(R,indent = 4, default = KBucketJSONEncode))
+    print('---------------------------------------------------------')
+    print(json.dumps(R1,indent = 4, default = KBucketJSONEncode))
 
-    s = json.dumps(bucket, default = KBucketJSONEncode)
-    #print(s)
-    
-    b = json.loads(s,object_hook = KBucketJSONDecode)
-    #print(vars(b))
-    
-    
+

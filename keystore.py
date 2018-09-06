@@ -18,7 +18,8 @@ class Keystore:
                 p = hashlib.blake2s(addr.digest(),digest_size = 20)
                 data['addr'] = addr.hexdigest()
                 data['diffcult'] = diffcult
-                if bin(int.from_bytes(p.digest(),byteorder = 'big'))[:diffcult + 2] == bin(0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF)[:diffcult + 2] :
+                #  print('{:0160b}'.format(int.from_bytes(p.digest(),byteorder = 'big')))
+                if '{:0160b}'.format(int.from_bytes(p.digest(),byteorder = 'big'))[:diffcult] == ('{:0'+ str(diffcult) +'b}').format(0):
                     break
             self.data = data
 
