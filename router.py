@@ -1,13 +1,21 @@
 import kbucket
 
+def _alt_prefix(bin_value,prefix):
+    length = len(prefix)
+    while 1:
+        if prefix[:length] == '{:0160b}'.format(int(bin_value,16))[:length]:
+            return length
+        length = length - 1
+
 class Router:
     def __init__(self):
         self.buckets = {'':kbucket.KBucket('')}
     
     def append(self,p,K = 20):
         keys = list(self.buckets.keys())
-        keys.sort(key = lambda x: len(x), reverse = True)
-        r = ''
+        keys.sort(key = lambda x: _alt_prefix(p.addr,x), reverse = True)
+        #print(keys,p.addr)
+        r = keys[0]
         for x in keys:
             if x == '{:0160b}'.format(int(p.addr,16))[:len(x)]:
                 r = x
@@ -27,18 +35,9 @@ class Router:
 
     def getK(self,addr,K = 20):
         keys = list(self.buckets.keys())
-        keys.sort(key = lambda x: len(x), reverse = True)
-        lkeys = []
-        for x in keys:
-            lkeys.append(x)
-            if x == '{:0160b}'.format(int(addr,16))[:len(x)]:
-                break
-        rkeys = keys[len(lkeys):]
-        middle = lkeys.pop()
-        R = [middle] + rkeys + lkeys
-        print(R)
+        keys.sort(key = lambda x: _alt_prefix(addr,x), reverse = True)
         result = []
-        for r in R:
+        for r in keys:
             res = self.buckets[r].getK(K)
             result = result + res
             K = K - len(res)
@@ -49,7 +48,6 @@ class Router:
     def __len__(self):
         l = 0
         for x in self.buckets.values():
-            print(x)
             l = l + len(x)
         return l
 
