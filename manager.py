@@ -16,6 +16,10 @@ class Manager:
     def flush(self):
         json.dump(self.ins,open(self.path,'w'),indent = 4,default = self.cls.JSONEncode)
 
+    def sync(self):
+        self.ins = json.load(open(self.path,'r'),object_hook = self.cls.JSONDecode)
+
+
 
 if __name__ == '__main__':
     import keystore
@@ -26,10 +30,11 @@ if __name__ == '__main__':
     import peer
     mrouter = Manager('router.json',router.Router)
     print(mrouter.ins)
-    for x in range(10):
-        d = keystore.Keystore()
-        p = peer.Peer(d.addr,d.pk)
-        mrouter.ins.append(p)
+    #  for x in range(10):
+    #      d = keystore.Keystore()
+    #      p = peer.Peer(d.addr,d.pk)
+    #      mrouter.ins.append(p)
     print(len(mrouter.ins))
     mrouter.flush()
+
 
