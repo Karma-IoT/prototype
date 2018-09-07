@@ -28,33 +28,34 @@ class Keystore:
         except nacl.exceptions.BadSignatureError as e:
             print(e)
             return False
-
-def KeystoreJSONEncode(obj):
-    if isinstance(obj,Keystore):
-        s = {}
-        s['sk'] = obj.sk
-        s['pk'] = obj.pk
-        s['addr'] = obj.addr
-        s['diffcult'] = obj.diffcult
-        s['_class'] = 'Keystore'
-        return s
-    else:
-        return obj
-
-def KeystoreJSONDecode(o):
-    if o['_class'] == 'Keystore':
-        keystore = Keystore()
-        keystore.sk = o['sk']
-        keystore.pk = o['pk']
-        keystore.addr = o['addr']
-        keystore.diffcult = o['diffcult']
-        return router
-    else:
-        return o
+    
+    @staticmethod
+    def JSONEncode(obj):
+        if isinstance(obj,Keystore):
+            s = {}
+            s['sk'] = obj.sk
+            s['pk'] = obj.pk
+            s['addr'] = obj.addr
+            s['diffcult'] = obj.diffcult
+            s['_class'] = 'Keystore'
+            return s
+        else:
+            return obj
+    @staticmethod
+    def JSONDecode(o):
+        if o['_class'] == 'Keystore':
+            keystore = Keystore()
+            keystore.sk = o['sk']
+            keystore.pk = o['pk']
+            keystore.addr = o['addr']
+            keystore.diffcult = o['diffcult']
+            return keystore
+        else:
+            return o
 
 
             
 if __name__ == '__main__':
     import json
     k1 = Keystore()
-    print(json.dumps(k1,indent = 4, default = KeystoreJSONEncode))
+    print(json.dumps(k1,indent = 4, default = Keystore.KeystoreJSONEncode))

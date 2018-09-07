@@ -35,28 +35,30 @@ class KBucket:
                 #print('left:',x.addr)
                 self.append(x)
         return bucketR
-                
-def KBucketJSONEncode(obj):
-    if isinstance(obj,KBucket):
-        s = {}
-        s['prefix'] = obj.prefix
-        peers = []
-        for _,x in obj.peers.items():
-            peers.append(x)
-        s['peers'] = peers
-        s['_class'] = 'KBucket'
-        return s
-    else:
-        return peer.PeerJSONEncode(obj)
     
-def KBucketJSONDecode(o):
-    if o['_class'] == 'KBucket':
-        bucket =  KBucket(o['prefix'])
-        for x in o['peers']:
-            bucket.append(x)
-        return bucket
-    else:
-        return peer.PeerJSONDecode(o)
+    @staticmethod
+    def JSONEncode(obj):
+        if isinstance(obj,KBucket):
+            s = {}
+            s['prefix'] = obj.prefix
+            peers = []
+            for _,x in obj.peers.items():
+                peers.append(x)
+            s['peers'] = peers
+            s['_class'] = 'KBucket'
+            return s
+        else:
+            return peer.Peer.JSONEncode(obj)
+    
+    @staticmethod
+    def JSONDecode(o):
+        if o['_class'] == 'KBucket':
+            bucket =  KBucket(o['prefix'])
+            for x in o['peers']:
+                bucket.append(x)
+            return bucket
+        else:
+            return peer.Peer.JSONDecode(o)
 
 if __name__ == '__main__':
     import keystore
@@ -65,13 +67,13 @@ if __name__ == '__main__':
     bucket = KBucket('')
     for x in range(20):
         d = keystore.Keystore()
-        p = peer.Peer(d.data['addr'],d.data['pk'])
+        p = peer.Peer(d.addr,d.pk)
         bucket.append(p)
     print(len(bucket))
-    s = json.dumps(bucket, indent = 4, default = KBucketJSONEncode)
+    s = json.dumps(bucket, indent = 4, default = KBucket.JSONEncode)
     #  print(s)
     #
-    b = json.loads(s,object_hook = KBucketJSONDecode)
+    b = json.loads(s,object_hook = KBucket.JSONDecode)
     print(vars(b))
     #  p = json.dumps(bucket.getK(10),indent = 4,default = KBucketJSONEncode)
     #  print(p)

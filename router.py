@@ -51,27 +51,29 @@ class Router:
             l = l + len(x)
         return l
 
-def RouterJSONEncode(obj):
-    if isinstance(obj,Router):
-        s = {}
-        buckets = []
-        for x in obj.buckets.values():
-            buckets.append(x)
-        s['buckets'] = buckets
-        s['_class'] = 'Router'
-        return s
-    else:
-        return kbucket.KBucketJSONEncode(obj)
+    @staticmethod
+    def JSONEncode(obj):
+        if isinstance(obj,Router):
+            s = {}
+            buckets = []
+            for x in obj.buckets.values():
+                buckets.append(x)
+            s['buckets'] = buckets
+            s['_class'] = 'Router'
+            return s
+        else:
+            return kbucket.KBucket.JSONEncode(obj)
 
-def RouterJSONDecode(o):
-    if o['_class'] == 'Router':
-        router = Router()
-        del router.buckets['']
-        for x in o['buckets']:
-            router.buckets[x.prefix] = x
-        return router
-    else:
-        return kbucket.KBucketJSONDecode(o)
+    @staticmethod
+    def JSONDecode(o):
+        if o['_class'] == 'Router':
+            router = Router()
+            del router.buckets['']
+            for x in o['buckets']:
+                router.buckets[x.prefix] = x
+            return router
+        else:
+            return kbucket.KBucket.JSONDecode(o)
         
 if __name__ == '__main__':
     import keystore
@@ -81,13 +83,13 @@ if __name__ == '__main__':
     ad = ''
     for x in range(50):
         d = keystore.Keystore()
-        p = peer.Peer(d.data['addr'],d.data['pk'])
+        p = peer.Peer(d.addr,d.pk)
         router.append(p)
-        ad = d.data['addr']
+        ad = d.addr
     print(len(router))
-    s = json.dumps(router,indent = 4, default = RouterJSONEncode)
+    s = json.dumps(router,indent = 4, default = Router.JSONEncode)
     print(s)
     b20 = router.getK(ad)
-    print(json.dumps(b20,indent = 4, default = RouterJSONEncode))
+    print(json.dumps(b20,indent = 4, default = Router.JSONEncode))
     print(ad)
     
