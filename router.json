@@ -1,0 +1,10 @@
+{
+    "buckets": [
+        {
+            "prefix": "",
+            "peers": [],
+            "_class": "KBucket"
+        }
+    ],
+    "_class": "Router"
+}
