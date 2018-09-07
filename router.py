@@ -29,9 +29,11 @@ class Router:
         self.buckets[kbucket.prefix] = kbucket
 
     def get(self,addr):
-        if addr in self.buckets:
-            return self.buckets[addr]
-        return None
+        keys = list(self.buckets.keys())
+        keys.sort(key = lambda x: _alt_prefix(addr,x), reverse = True)
+        #print(keys,p.addr)
+        r = keys[0]
+        return self.buckets[r].get(addr)
 
     def getK(self,addr,K = 20):
         keys = list(self.buckets.keys())

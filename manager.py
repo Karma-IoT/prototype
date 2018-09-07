@@ -35,6 +35,8 @@ if __name__ == '__main__':
     #      p = peer.Peer(d.addr,d.pk)
     #      mrouter.ins.append(p)
     print(len(mrouter.ins))
-    mrouter.flush()
+    #  mrouter.flush()
+    print(json.dumps(mrouter.ins.get('0742a392bb79c31b49eceae267b37dbe399a7f9d'),indent = 4, default = mrouter.cls.JSONEncode))
+    
 
 

@@ -13,7 +13,7 @@ class KBucket:
         
     def get(self,addr):
         if addr in self.peers:
-            return self.peers['addr']
+            return self.peers[addr]
         return None
         
     def append(self,p):
