@@ -1,8 +1,341 @@
 {
     "buckets": [
         {
-            "prefix": "",
-            "peers": [],
+            "prefix": "1",
+            "peers": [
+                {
+                    "addr": "e239aa994ae59f8dba84c658ce62652e4ec61265",
+                    "spk": "0e8c513859cb8c43c5c84b7db7f61fcd477d9097a537b3bb3e196c0e248cf811",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 6,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "9a51f39ac539cb6216f61566f00bde45c9551f6e",
+                    "spk": "036feb22a498ee151c3112c5458275562bbdc25d4afbf8c1a134d66b7503249c",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 7,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "d662c31d327177493643ce0c3e4880d57b65012c",
+                    "spk": "d31dc003cbb4278860cafd465d4334897c4dfa386eff54b23b43b5f875ea0db7",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "8bf929ce644ea203a37192e66f021cdb90d2d1de",
+                    "spk": "0177adb29744dc0979120a96912db8ded3fb77ee213f87532bc2f78780330a2e",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 7,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "c8f14e6256aec057a437aec82456410f3f0156da",
+                    "spk": "0478fc19cd3bd4b16dde8be0602fa51c8cb1269e31f2be55d1ad3b52bb3b35d6",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "a51d2e46d1cb062b2becda5d96d96e2a77411a9c",
+                    "spk": "a9c50082339aba6c2c0f1779797c370f079f5e019563a193216300c48049f864",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "9ad8a19d011c77ba90f8ff9c6d0f5760b327f0c2",
+                    "spk": "a96c2e41afbb6cb0a3ac09f4d3900fcb36892c6e17f6201346aee17fb46dc028",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "e4ddc11cbc9aa711f6ea313c041c212296055d20",
+                    "spk": "00e7edbd89a5aeeb63d52dccbea5426b3b3e02eee5a1c7554aa165e7411ca523",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 6,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "9a7020e3208f61bcb46d06fec9dfb58d09c210cc",
+                    "spk": "fb064924ae3fa3de8b6fc2c34dc49982d91e8f39f49ece12bd58430a8b7ba415",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "b52ed6872339a0c3cf972dbf5fe24c7b469c7601",
+                    "spk": "ee3e48f39f63a90b0c515bf08124c1931ae490ec7bf6ea67d754a4478f7ff5d7",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "8aeb92b990ae19bc8d48ee1debee0a4655125be7",
+                    "spk": "fe420c224c9bab947bcd64c91d0b7624ff164f5a7ef301028b1533fa42d1e97c",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "f6cf1c0fe3a40d706e1c6f46f57da96f9d0be374",
+                    "spk": "14f74a6648872f9f82e424ab43e3d5a63d10faf8e05a6d1adfc9d1b839fd16d5",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 6,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "85204ad9db5c4b69e731bb29bfb0707f0e546e8a",
+                    "spk": "9612aae18985c0d2eddf52f3be8a261658acf300951e04b32054cead502c2eb7",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "a164ec72508ec2953c3cefd29585535681399fb3",
+                    "spk": "3443d9bbfbede2d011d3a9fb1c211605da40c716827ac7e076f1a50292cefe0c",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 7,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "ca56016a075ee5cdd887a9f92a6e06295cfd85b3",
+                    "spk": "f83da4677a72a88c5306c13a80e7bea9e8f8ce2dee3c5b12d63422a5cd63dfbb",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 9,
+                    "_class": "Peer"
+                }
+            ],
+            "_class": "KBucket"
+        },
+        {
+            "prefix": "01",
+            "peers": [
+                {
+                    "addr": "7d1dc660409f6f0b4284923b2487bb549efecca2",
+                    "spk": "e3ad90ba7c826abd9f58927ced53ca2ca0f36e4b5769ac3f675b7239788f1b91",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "7402d18970ddf3aa229be3f535248d3312c0b4e4",
+                    "spk": "c3f80fd5dbe1885a2d36f5818a3540e61f79bfe692ed797534e74718f8f4ff8e",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "5150e65532c55146819c4d8615c3eeea5ecd3a26",
+                    "spk": "00da86a9e43f8b55fa2be1090b3e71f76d58a1c880cd5e83833b71023351d914",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "58bf17377a65136c33fae4c70f2efb950a5d7c56",
+                    "spk": "331fd39447568cfc64ce518e32710d1fdcdcb2071908676bb509f764e820e399",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "5f3406018fe8bc535ce826d0a18ff80839c02790",
+                    "spk": "5e660b887335f67d592cb1882d9124bff7182d0eb057dc811f6df3625d7f8d78",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 12,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "5de2b0a0227628958628b17e98fa923d5057fc8e",
+                    "spk": "05c2891fbe317a54b2ae38979f0bafd43cb4c12fbd54267196607332c69aa8c2",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "6e205abd5f2b0ed2d08cdecd55e1bec15b9a88f4",
+                    "spk": "d337ad68ba743b778eea314555dcf2e761a075b5ab51e55025097baa096f7c61",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 9,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "4d1a6e4e002512b4b8ad4134066ba48ac0b72ad9",
+                    "spk": "1af413cd22c536e90cac6d5c4b4a2d10440aaeff9993910663a6a2509156871b",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 6,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "4a69b3367924252a4f6cef5a3ddd5b4d560bea78",
+                    "spk": "65068c68d1d9defd46e8811cd3f1aa462b7a9c7c4f878a582b814e88fdb2a78a",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 6,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "76b35274a42b41cbf3b2c3baea6fc3a26e00840a",
+                    "spk": "3e91daa6d2372527b311d89d6506986d15cc84d99b8fe7a1800ef792cf52cf64",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "44728bcde386cbdde394663b3047d0ba8895d6ca",
+                    "spk": "3fb1298d7b910973173d8a2b011de691456d18fe3b578a99268c473912f77fbe",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 7,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "4e4123d6658109be185902e357ac005e60b0e8e4",
+                    "spk": "beca9b39b51f0599e309be18cd63fe2ecd3aceb3316b071b2c23b954ecae1fcb",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 7,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "7b2dc26e9377f2ea0a7e57c6e99bf51377df6863",
+                    "spk": "4b79b6678b6a24cbea4af74a9f23af170c7e66d036565c0c0dc2976bb58c027c",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "7b7802afb9eb0bb8b91cc6cde8f3c73a7326001a",
+                    "spk": "f979654ddf4d32d6d310c399790571cd9d1030c25588cdfe2daf528ee7cc1a66",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                }
+            ],
+            "_class": "KBucket"
+        },
+        {
+            "prefix": "00",
+            "peers": [
+                {
+                    "addr": "352e81568694c05f39a0123b04f15509274a71a6",
+                    "spk": "79ae70911bb1cd83c48bea82cec08818788061f838c78d4a4b6efc6bb6f35f29",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "380680ed9c40cacce995338bb10cbb2d5f6e9d4c",
+                    "spk": "81008448a017a9e1c94ea41879120f633c17f56551eac9c080438bad965fab50",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "39f680f380727052d1f1ec7519030653a786816c",
+                    "spk": "fb83a979abaab5b4b9410e9bac31d6d71468678d4399736c832c61f7e205da25",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 7,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "05ead232614ff4fdb530ed120cb3a62bd5bc027a",
+                    "spk": "60e48a27010cd4cd7d70f1ace7bea63b23090d34f0c3b60e793276cbeefae3e1",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 8,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "14929b80f022ac39661a72275a112640cb1f49f0",
+                    "spk": "7e721ce6160bc2eb78526a8feb20fd235bf608524498916415dbeeb0e76f02b0",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 9,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "14997ccf100a20b2d23d04065bdcbd75ec06cbaf",
+                    "spk": "564a72d9b66ede95cbc7fc4d467b3bcb34fdc46e5e47f5c000bf3cf6a6a77069",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 6,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "3c19685a75ca07c1c0c23e9ae8a4c9af8c6c2d4d",
+                    "spk": "b7fcafce308723d6d666c0a0a7779dc5e711f2c61656fcc575ca27e6d2b413e4",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "059b11b16b3d56310578516e49a4186fd5896134",
+                    "spk": "cd2998e0ad75de67add425b3f820bf65234cacb07d26e7816ddc1d7b0bc163e8",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 5,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "3439150ea63c1982c74d91e8cf7b65395b67ad9a",
+                    "spk": "6d89ac79ea0dd1ad53464ff22879cd91007fe73db76f626fe73ad3405d006a11",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 7,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "240f322d97fc4c7611e31cbc387246c03e983f24",
+                    "spk": "d2ada0432bb4e1c149c88a6ac31ccc5281e1de1d1b636335206a1e005112c615",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 9,
+                    "_class": "Peer"
+                },
+                {
+                    "addr": "0742a392bb79c31b49eceae267b37dbe399a7f9f",
+                    "spk": "9300c241e0615a4706d69e20fb9e6e337c83b5f49d5d5af9f4c4f68877823aed",
+                    "epk": "",
+                    "info": [],
+                    "diffcult": 7,
+                    "_class": "Peer"
+                }
+            ],
             "_class": "KBucket"
         }
     ],
